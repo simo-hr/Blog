@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CookieAuthenticationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('admin')->group(function () {
+    Route::post('login', [CookieAuthenticationController::class, 'login'])->name('login');
+    Route::post('logout', [CookieAuthenticationController::class, 'logout'])->name('logout');
 });
