@@ -1,25 +1,18 @@
-
-FROM php:7.3.0RC6-fpm-alpine3.8
+FROM php:8.0-fpm-buster
 # timezone
 ARG TZ
+SHELL ["/bin/bash", "-oeux", "pipefail", "-c"]
+ENV COMPOSER_ALLOW_SUPERUSER=1 \
+  COMPOSER_HOME=/composer
 
 COPY ./docker/php/php.ini /usr/local/etc/php/
 COPY ./laravel/ /var/www/laravel/
+COPY --from=composer:2.0 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/laravel
 
-RUN apk upgrade --update && apk add --no-cache \
-  coreutils freetype-dev jpeg-dev libjpeg-turbo-dev libpng-dev libmcrypt-dev \
-  git vim unzip tzdata \
-  libltdl && \
-  docker-php-ext-install pdo_mysql mysqli mbstring && \
-  docker-php-ext-install -j$(nproc) iconv && \
-  docker-php-ext-configure gd \
-  --with-freetype-dir=/usr/include/ \
-  --with-jpeg-dir=/usr/include/ && \
-  docker-php-ext-install -j$(nproc) gd && \
-  cp /usr/share/zoneinfo/${TZ} /etc/localtime && \
-  apk del tzdata && \
-  rm -rf /var/cache/apk/*
-
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN apt-get update && \
+  apt-get -y install git unzip libzip-dev libicu-dev libonig-dev && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/* && \
+  docker-php-ext-install intl pdo_mysql zip bcmath
