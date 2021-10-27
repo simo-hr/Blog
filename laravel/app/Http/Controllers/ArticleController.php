@@ -19,22 +19,22 @@ class ArticleController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return ArticleResource
      */
     public function index()
     {
-        //
+        return ArticleResource::collection($this->articleService->index());
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return ArticleResource
      */
     public function store(Request $request)
     {
-        //
+        return new ArticleResource($this->articleService->store($request));
     }
 
     /**
@@ -45,7 +45,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        $article = $this->articleService->getArticle($article->id);
+        $article = $this->articleService->show($article->id);
         return new ArticleResource($article);
     }
 
@@ -53,22 +53,22 @@ class ArticleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  Article $article
+     * @return ArticleResource
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Article $article)
     {
-        //
+        $article = $this->articleService->update($request, $article->id);
+        return new ArticleResource($article);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  Article $article
      */
-    public function destroy($id)
+    public function destroy(Article $article)
     {
-        //
+        return $this->articleService->destroy($article->id);
     }
 }
