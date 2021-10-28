@@ -13,7 +13,6 @@ class ArticleController extends Controller
 {
     public function __construct(private ArticleServiceInterface $articleService)
     {
-        $this->articleService = $articleService;
     }
 
     /**
