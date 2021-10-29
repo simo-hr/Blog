@@ -21,7 +21,7 @@ class ArticleService implements ArticleServiceInterface
 
     public function store(Request $request)
     {
-        return $this->articleRepository->store($request->title, $request->content);
+        return $this->articleRepository->store($request->category_id, $request->title, $request->content);
     }
 
     public function show(int $id)
@@ -31,7 +31,7 @@ class ArticleService implements ArticleServiceInterface
 
     public function update(Request $request, int $id)
     {
-        return $this->articleRepository->update($request->title, $request->content, $id);
+        return $this->articleRepository->update($request->category_id, $request->title, $request->content, $id);
     }
 
     public function destroy(int $id)
