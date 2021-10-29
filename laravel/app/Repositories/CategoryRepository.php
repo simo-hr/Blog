@@ -29,18 +29,18 @@ class CategoryRepository implements CategoryRepositoryInterface
 
     public function update(?int $parent_id, string $name, int $id)
     {
-        $article = Category::find($id);
-        $article->update([
+        $category = Category::find($id);
+        $category->update([
             'parent_id' => $parent_id,
             'name' => $name
         ]);
-        return $article;
+        return $category;
     }
 
     public function destroy(int $id)
     {
-        $article = Category::find($id);
-        if ($article->delete()) {
+        $category = Category::find($id);
+        if ($category->delete()) {
             return response()->json('success', Response::HTTP_OK);
         } else {
             return response()->json('failed', Response::HTTP_INTERNAL_SERVER_ERROR);

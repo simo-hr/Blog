@@ -17,6 +17,7 @@ class ArticleSeeder extends Seeder
     public function run()
     {
         DB::table('articles')->insert([
+            'category_id' => 5,
             'title' => '【PHP】比較演算子「==」の罠',
             'content' => "<div>
             <div>

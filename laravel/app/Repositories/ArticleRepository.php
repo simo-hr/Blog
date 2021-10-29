@@ -14,9 +14,10 @@ class ArticleRepository implements ArticleRepositoryInterface
         return Article::all();
     }
 
-    public function store(string $title, string $content)
+    public function store(int $category_id, string $title, string $content)
     {
         return Article::create([
+            'category_id' => $category_id,
             'title' => $title,
             'content' => $content
         ]);
@@ -27,10 +28,11 @@ class ArticleRepository implements ArticleRepositoryInterface
         return Article::find($id);
     }
 
-    public function update(string $title, string $content, int $id)
+    public function update(int $category_id, string $title, string $content, int $id)
     {
         $article = Article::find($id);
         $article->update([
+            'category_id' => $category_id,
             'title' => $title,
             'content' => $content
         ]);

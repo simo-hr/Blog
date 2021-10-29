@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Article;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,4 +19,9 @@ class Category extends Model
         'parent_id',
         'name',
     ];
+
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
 }
