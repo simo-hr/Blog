@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\ArticleRequest;
 use App\Http\Resources\ArticleResource;
 use App\Models\Article;
 use App\Services\ArticleServiceInterface;
@@ -28,10 +28,10 @@ class ArticleController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  ArticleRequest  $request
      * @return ArticleResource
      */
-    public function store(Request $request)
+    public function store(ArticleRequest $request)
     {
         return new ArticleResource($this->articleService->store($request));
     }
@@ -51,11 +51,11 @@ class ArticleController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  ArticleRequest $request
      * @param  Article $article
      * @return ArticleResource
      */
-    public function update(Request $request, Article $article)
+    public function update(ArticleRequest $request, Article $article)
     {
         $article = $this->articleService->update($request, $article->id);
         return new ArticleResource($article);
