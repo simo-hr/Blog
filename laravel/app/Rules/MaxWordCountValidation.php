@@ -11,7 +11,7 @@ class MaxWordCountValidation implements Rule
      *
      * @return void
      */
-    public function __construct(private int $wordCount)
+    public function __construct(private int $MaxWordCount)
     {
     }
 
@@ -22,12 +22,11 @@ class MaxWordCountValidation implements Rule
      * @param  mixed  $value
      * @return bool
      */
-    public function passes($attribute, $value)
+    public function passes($attribute, $value): bool
     {
         $trim = str_replace(array("\r\n", "\r", "\n"), '', $value);
-        $upper = mb_convert_kana($trim, 'RNASKHCV', 'UTF-8');
-        $mbLen = mb_strwidth($upper, 'UTF-8');
-        return $this->wordCount >= $mbLen;
+        $Length = strlen($trim);
+        return $this->MaxWordCount >= $Length;
     }
 
     /**
@@ -37,6 +36,6 @@ class MaxWordCountValidation implements Rule
      */
     public function message()
     {
-        return ":attributeは{$this->wordCount}文字以下で入力してください";
+        return ":attributeは{$this->MaxWordCount}文字以下で入力してください";
     }
 }
