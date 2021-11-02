@@ -13,7 +13,7 @@ import Vue from 'vue'
 
 export default Vue.extend({
   async asyncData({ app }): Promise<object> {
-    const greet: string = await app.$axios.$get('/').catch((err) => err)
+    const greet: string = await app.$axios.$get('/hello').catch((err) => err)
     return { greet }
   },
 })

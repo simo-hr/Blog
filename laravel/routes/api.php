@@ -5,6 +5,7 @@ use App\Http\Controllers\MeController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
+use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,7 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
+Route::get('/sanctum/csrf-cookie', [CsrfCookieController::class, 'show']);
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/admin/me', function (Request $request) {
         return $request->user();
@@ -24,6 +26,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::apiResource('/articles', ArticleController::class);
     Route::apiResource('/categories', CategoryController::class);
 });
-Route::get('/', function () {
+Route::get('/hello', function () {
     return 'Hello World';
 });
