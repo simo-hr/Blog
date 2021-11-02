@@ -14,7 +14,7 @@ use App\Http\Controllers\CookieAuthenticationController;
 |
 */
 
-Route::prefix('admin')->group(function () {
+Route::prefix('api')->group(function () {
     Route::post('login', [CookieAuthenticationController::class, 'login'])->name('login');
     Route::post('logout', [CookieAuthenticationController::class, 'logout'])->name('logout');
 });

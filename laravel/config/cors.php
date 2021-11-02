@@ -18,8 +18,6 @@ return [
     // 'paths' => ['*'],
     'paths' => [
         'api/*',
-        'admin/login',
-        'admin/logout',
         'sanctum/csrf-cookie'
     ],
 
