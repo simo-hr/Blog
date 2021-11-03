@@ -2,6 +2,7 @@
   <div>
     <Header :categories="categories" />
     <Nuxt />
+    <Footer />
   </div>
 </template>
 
