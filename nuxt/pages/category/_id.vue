@@ -1,8 +1,6 @@
 <template>
   <div class="container">
-    <div>
-      <h1 class="title"></h1>
-    </div>
+    <p>{{ $route.params.id }}</p>
   </div>
 </template>
 
