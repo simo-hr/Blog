@@ -11,7 +11,7 @@ class CategoryRepository implements CategoryRepositoryInterface
 {
     public function index()
     {
-        return Category::all();
+        return Category::where('parent_id', null)->get();
     }
 
     public function store(?int $parent_id, string $name)
