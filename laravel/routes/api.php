@@ -23,9 +23,11 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/admin/me', function (Request $request) {
         return $request->user();
     });
-    Route::apiResource('/articles', ArticleController::class);
-    Route::apiResource('/categories', CategoryController::class);
+    Route::apiResource('/articles', ArticleController::class, ['except' => ['index', 'show']]);
+    Route::apiResource('/categories', CategoryController::class, ['except' => ['index', 'show']]);
 });
+Route::apiResource('/articles', ArticleController::class, ['only' => ['index', 'show']]);
+Route::apiResource('/categories', CategoryController::class, ['only' => ['index', 'show']]);
 Route::get('/hello', function () {
     return 'Hello World';
 });
