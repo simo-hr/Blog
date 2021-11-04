@@ -6,7 +6,7 @@
           {{ siteName }}
         </div>
       </nuxt-link>
-      <Category :categories="categories" />
+      <Category />
     </header>
   </div>
 </template>
@@ -18,12 +18,6 @@ export default {
     Category,
   },
   layout: 'Header',
-  props: {
-    categories: {
-      type: Array,
-      default: () => [],
-    },
-  },
   computed: {
     siteName() {
       return process.env.SITE_NAME

@@ -83,9 +83,7 @@
 </template>
 
 <script>
-import categoryMixin from '@/mixins/categoryMixins.js'
 export default {
-  mixins: [categoryMixin],
   data() {
     return {
       form: {

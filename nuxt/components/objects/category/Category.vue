@@ -40,17 +40,22 @@ export default {
   components: {
     ChildrenCategory,
   },
-  props: {
-    categories: {
-      type: Array,
-      default: () => [],
-    },
-  },
   data() {
     return {
       hoverFlag: false,
       hoverIndex: null,
+      categories: [],
     }
+  },
+  async fetch() {
+    const response = await this.$axios.get('categories').catch((error) => {
+      // eslint-disable-next-line no-console
+      console.log(error)
+    })
+    this.$store.dispatch('category/setCategories', response.data)
+  },
+  mounted() {
+    this.categories = this.$store.getters['category/categories']
   },
   methods: {
     showChildren(index) {
