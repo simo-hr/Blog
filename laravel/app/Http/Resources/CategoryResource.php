@@ -21,6 +21,7 @@ class CategoryResource extends JsonResource
             'created_at' => (string)$this->created_at,
             'updated_at' => (string)$this->updated_at,
             'children' => $this->childrenCategories,
+            'articles' => $this->articles,
         ];
     }
 }
