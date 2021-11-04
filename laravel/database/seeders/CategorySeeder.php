@@ -16,8 +16,10 @@ class CategorySeeder extends Seeder
     {
         DB::table('categories')->insert(
             [
-                ['name' => 'Web', 'parent_id' => null],
+                ['name' => 'Web全般', 'parent_id' => null],
                 ['name' => 'プログラミング', 'parent_id' => null],
+                ['name' => 'インフラ', 'parent_id' => null],
+                ['name' => '雑記', 'parent_id' => null],
                 ['name' => 'Laravel', 'parent_id' => 2],
                 ['name' => 'Nuxt.js', 'parent_id' => 2],
                 ['name' => 'PHP', 'parent_id' => 2],
