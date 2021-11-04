@@ -17,9 +17,95 @@ class ArticleSeeder extends Seeder
     public function run()
     {
         DB::table('articles')->insert([
-            'category_id' => 5,
-            'title' => '【PHP】比較演算子「==」の罠',
-            'content' => "<div>
+            [
+                'category_id' => 1,
+                'title' => 'Webの基礎おさらい',
+                'content' => "これから書く"
+            ],
+            [
+                'category_id' => 3,
+                'title' => 'AWS LightSail使ってみた',
+                'content' => "これから書く"
+            ],
+            [
+                'category_id' => 4,
+                'title' => '自宅のPC環境を公開',
+                'content' => "これから書く"
+            ],
+            [
+                'category_id' => 1,
+                'title' => 'Webの基礎おさらい',
+                'content' => "これから書く"
+            ],
+            [
+                'category_id' => 3,
+                'title' => 'AWS LightSail使ってみた',
+                'content' => "これから書く"
+            ],
+            [
+                'category_id' => 4,
+                'title' => '自宅のPC環境を公開',
+                'content' => "これから書く"
+            ],
+            [
+                'category_id' => 1,
+                'title' => 'Webの基礎おさらい',
+                'content' => "これから書く"
+            ],
+            [
+                'category_id' => 3,
+                'title' => 'AWS LightSail使ってみた',
+                'content' => "これから書く"
+            ],
+            [
+                'category_id' => 4,
+                'title' => '自宅のPC環境を公開',
+                'content' => "これから書く"
+            ],
+            [
+                'category_id' => 1,
+                'title' => 'Webの基礎おさらい',
+                'content' => "これから書く"
+            ],
+            [
+                'category_id' => 3,
+                'title' => 'AWS LightSail使ってみた',
+                'content' => "これから書く"
+            ],
+            [
+                'category_id' => 4,
+                'title' => '自宅のPC環境を公開',
+                'content' => "これから書く"
+            ],
+            [
+                'category_id' => 1,
+                'title' => 'Webの基礎おさらい',
+                'content' => "これから書く"
+            ],
+            [
+                'category_id' => 3,
+                'title' => 'AWS LightSail使ってみた',
+                'content' => "これから書く"
+            ],
+            [
+                'category_id' => 4,
+                'title' => '自宅のPC環境を公開',
+                'content' => "これから書く"
+            ],
+            [
+                'category_id' => 6,
+                'title' => 'Nuxtで○○',
+                'content' => "これから書く"
+            ],
+            [
+                'category_id' => 5,
+                'title' => 'Laravelで○○',
+                'content' => "これから書く"
+            ],
+            [
+                'category_id' => 7,
+                'title' => '【PHP】比較演算子「==」の罠',
+                'content' => "<div>
             <div>
                 <h2>読んでほしい人</h2>
                 <p>
@@ -71,6 +157,7 @@ class ArticleSeeder extends Seeder
                 </p>
             </div>
         </div>"
+            ]
         ]);
     }
 }
