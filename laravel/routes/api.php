@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MeController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ArticleImageController;
 use App\Http\Controllers\CategoryController;
 use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
 
@@ -25,6 +26,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     });
     Route::apiResource('/articles', ArticleController::class, ['except' => ['index', 'show']]);
     Route::apiResource('/categories', CategoryController::class, ['except' => ['index', 'show']]);
+    Route::post('/articles/{id}/image', [ArticleImageController::class, 'upload']);
 });
 Route::apiResource('/articles', ArticleController::class, ['only' => ['index', 'show']]);
 Route::apiResource('/categories', CategoryController::class, ['only' => ['index', 'show']]);
