@@ -33,6 +33,7 @@
 
 <script>
 export default {
+  middleware: ['checkIsAdmin'],
   asyncData(context) {
     return context.$axios
       .get(`articles/${context.route.params.id}`)
