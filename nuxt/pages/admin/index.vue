@@ -22,6 +22,7 @@
 
 <script>
 export default {
+  middleware: ['checkIsAdmin'],
   methods: {
     logout() {
       this.$store.dispatch('auth/logout', this.form)
