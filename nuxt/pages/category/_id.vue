@@ -3,7 +3,9 @@
     <h2>{{ category.name }}</h2>
     <div v-for="(article, index) in articles" :key="index">
       {{ category.name }}
-      {{ article.title }}
+      <nuxt-link :to="{ path: '/article/' + article.id }">
+        {{ article.title }}</nuxt-link
+      >
     </div>
   </div>
 </template>
