@@ -44,6 +44,7 @@ export default {
   fontawesome: {
     icons: {
       solid: ['faBars'],
+      regular: ['faClock'],
     },
   },
   // Modules: https://go.nuxtjs.dev/config-modules

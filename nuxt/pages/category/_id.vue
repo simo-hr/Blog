@@ -1,17 +1,21 @@
 <template>
-  <div class="container">
-    <h2>{{ category.name }}</h2>
-    <div v-for="(article, index) in articles" :key="index">
+  <div class="container mx-auto my-10">
+    <h1
+      class="pl-3 mb-10 font-sans text-base sm:text-lg md:text-3xl lg:text-3xl xl:text-3xl"
+    >
       {{ category.name }}
-      <nuxt-link :to="{ path: '/article/' + article.id }">
-        {{ article.title }}</nuxt-link
-      >
-    </div>
+    </h1>
+    <p v-show="articles.length === 0" class="pl-5 h-">記事がありません</p>
+    <ArticleCaption :articles="articles" :category="category" />
   </div>
 </template>
 
 <script>
+import ArticleCaption from '@/components/objects/article/ArticleCaption'
 export default {
+  components: {
+    ArticleCaption,
+  },
   asyncData(app) {
     return app.$axios
       .get(`categories/${app.route.params.id}`)

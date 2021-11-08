@@ -12,8 +12,7 @@ module.exports = {
   },
   variants: {
     extend: {
-      Border: ['responsive', 'hover', 'focus','active'],
-      backgroundColor: ['responsive', 'hover', 'focus','active'],
+      scale: ['hover'],
     },
   },
   plugins: [],
