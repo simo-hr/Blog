@@ -11,6 +11,7 @@ module.exports = {
     extend: {},
   },
   variants: {
+    padding: ['responsive', 'hover', 'focus'],
     extend: {
       scale: ['hover'],
     },
