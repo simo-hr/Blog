@@ -24,7 +24,7 @@
             >{{ category.name }}</span
           >
           <img
-            class="w-full hover:scale-125"
+            class="w-full shadow-md"
             :src="`${apiHost}/storage/articles/${article.image}`"
           />
         </div>
