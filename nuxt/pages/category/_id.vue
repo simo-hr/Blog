@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto my-10">
+  <div class="container mx-auto mb-10">
     <h1
       class="pl-3 mb-10 font-sans text-base sm:text-lg md:text-3xl lg:text-3xl xl:text-3xl"
     >
