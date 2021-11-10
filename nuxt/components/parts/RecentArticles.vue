@@ -1,6 +1,8 @@
 <template>
-  <div class="max-w-xs p-1 text-gray-700">
-    <div id="list-name" class="relative w-full font-bold text-xl mb-2">最近の投稿</div>
+  <div class="w-full sm:max-w-sm px-1 pb-1 text-gray-700">
+    <div id="list-name" class="relative w-full font-bold text-xl mb-2">
+      最近の投稿
+    </div>
     <li
       v-for="(article, index) in articles"
       :key="index"
@@ -53,7 +55,9 @@ export default {
 
 <style scoped>
 #list-name {
-  padding: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 #list-name:before {
