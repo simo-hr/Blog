@@ -7,22 +7,7 @@
     >
       <nuxt-link :to="{ path: `/article/${article.id}` }">
         <div class="relative">
-          <span
-            class="
-              absolute
-              pr-1
-              pl-1
-              text-gray-200
-              font-sans
-              text-base
-              sm:text-sm
-              md:text-md
-              lg:text-lg
-              bg-clip-border bg-gray-600
-              border-1 border-gray-400
-            "
-            >{{ category.name }}</span
-          >
+          <CategoryTag class="absolute">{{ category.name }}</CategoryTag>
           <img
             class="w-full shadow-md"
             :src="`${apiHost}/storage/articles/${article.image}`"
@@ -37,7 +22,7 @@
         <div class="align-middle">
           <font-awesome-icon
             class="inlne-block my-auto text-gray-400 h-full my-auto"
-            :icon="['fa', 'clock']"
+            :icon="['far', 'clock']"
           />
           <span class="inlne-block my-auto">
             {{ article.created_at.substr(0, 10) }}
@@ -49,7 +34,11 @@
 </template>
 
 <script>
+import CategoryTag from '@/components/parts/CategoryTag'
 export default {
+  components: {
+    CategoryTag,
+  },
   props: {
     articles: {
       type: Array,

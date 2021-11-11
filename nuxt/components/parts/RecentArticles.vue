@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full sm:max-w-sm px-1 pb-1 text-gray-700">
+  <div class="w-full sm:max-w-sm pb-1 text-gray-700">
     <div id="list-name" class="relative w-full font-bold text-xl mb-2">
       最近の投稿
     </div>
