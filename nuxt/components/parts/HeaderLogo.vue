@@ -8,12 +8,9 @@
       md:text-xl
       lg:text-2xl
       xl:text-3xl
-      flex-none
-      h-full
       text-center
       align-middle
       p-2
-      ml-2
     "
   >
     {{ siteName }}

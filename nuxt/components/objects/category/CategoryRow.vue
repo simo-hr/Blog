@@ -1,29 +1,26 @@
 <template>
-  <div class="h-full">
+  <div>
     <div
       v-for="(category, index) in categories"
       :key="category.id"
-      class="flex-auto relative h-full"
+      class="flex-auto relative"
       @mouseover="showChildren(index)"
       @mouseleave="hideChildren(index)"
     >
       <nuxt-link
         class="
-          font-sans
-          text-base
+          flex
+          items-center
+          h-full
           sm:text-md
           md:text-lg
           lg:text-xl
-          xl:text-2xl
-          inline-block
-          text-center
-          align-middle
-          p-2
+          px-2
           hover:bg-gray-100
         "
         :to="{ path: '/category/' + category.id }"
       >
-        {{ category.name }}
+        <div>{{ category.name }}</div>
       </nuxt-link>
       <ChildrenCategoryRow
         v-show="hoverFlag && index === hoverIndex"

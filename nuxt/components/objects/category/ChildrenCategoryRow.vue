@@ -6,10 +6,9 @@
           font-sans
           inline-block
           text-base
-          sm:text-lg
-          md:text-xl
-          lg:text-2xl
-          xl:text-3xl
+          sm:text-md
+          md:text-lg
+          lg:text-xl
           text-center
           align-middle
           w-full
