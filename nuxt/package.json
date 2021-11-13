@@ -25,6 +25,7 @@
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/proxy": "^2.1.0",
     "core-js": "^3.15.1",
+    "editorjs-html": "^3.4.2",
     "nuxt": "^2.15.7"
   },
   "devDependencies": {
