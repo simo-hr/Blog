@@ -2,7 +2,7 @@
   <div>
     <Header class="mb-10 mr-4 sticky top-0 z-10 bg-white" />
     <div class="flex flex-col sm:flex-row">
-      <Nuxt class="pl-3" />
+      <Nuxt class="box-border" />
       <Aside class="mr-4" />
     </div>
     <Footer />
