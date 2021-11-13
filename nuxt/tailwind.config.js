@@ -8,13 +8,17 @@ module.exports = {
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      top: {
+        '1/2': '50%',
+      },
+    },
   },
   variants: {
     padding: ['responsive', 'hover', 'focus'],
-    extend: {
-      scale: ['hover'],
-    },
+    cursor: ['hover'],
+    scale: ['hover'],
+    extend: {},
   },
   plugins: [],
 }
