@@ -81,7 +81,7 @@
       <div></div>
     </div>
 
-    <div id="editorjs" class=""></div>
+    <div id="editorjs"></div>
     <button class="inline-block btn w-full" @click="save()">更新</button>
   </div>
 </template>
@@ -198,5 +198,13 @@ export default {
 
 .btn {
   @apply text-white bg-gray-600 p-2 m-2 cursor-pointer;
+}
+
+.code-block {
+  @apply text-white bg-gray-600 p-2 m-2 cursor-pointer;
+}
+
+#editorjs >>> .code-block textarea {
+  @apply text-gray-300 w-full bg-gray-900 my-2 p-2 rounded;
 }
 </style>

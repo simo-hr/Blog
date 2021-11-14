@@ -19,6 +19,9 @@
     <div v-if="isAdmin">
       <nuxt-link :to="{ path: `/article/edit/${article.id}` }">edit</nuxt-link>
     </div>
+    <div v-if="!isAdmin">
+      <nuxt-link :to="{ path: `/article/edit/${article.id}` }">edit</nuxt-link>
+    </div>
     <div class="p-2 mb-10">
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div v-html="article.content"></div>
@@ -33,23 +36,24 @@ export default {
   components: {
     CategoryTag,
   },
-  asyncData(context) {
-    return context.$axios
+  async asyncData(context) {
+    const response = await context.$axios
       .get(`articles/${context.route.params.id}`)
-      .then((response) => {
-        const parser = EditorJSHtml()
-        const article = response.data
-        article.content = parser
-          .parse(JSON.parse(article.content))
-          .reduce((x, y) => `${x}${y}`)
-        return {
-          article,
-        }
-      })
       .catch((error) => {
         // eslint-disable-next-line no-console
         console.log(error)
       })
+    const article = response.data
+    const codeParser = (block) => {
+      return `<pre class="p-2 my-2 bg-gray-800 text-gray-200 rounded"><code>${block.data.code
+        .replace(/</g, '&lt;')
+        .replace(/>/, '&gt;')}</code></pre>`
+    }
+    const parser = await EditorJSHtml({ code: codeParser })
+    article.content = await parser
+      .parse(JSON.parse(article.content))
+      .reduce((x, y) => `${x}${y}`)
+    return { article }
   },
   data() {
     return {
