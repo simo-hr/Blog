@@ -21,7 +21,7 @@
         </p>
         <div class="align-middle">
           <font-awesome-icon
-            class="inlne-block my-auto text-gray-400 h-full my-auto"
+            class="inline-block my-auto text-gray-400 h-full my-auto"
             :icon="['far', 'clock']"
           />
           <span class="inlne-block my-auto">
