@@ -1,6 +1,8 @@
 <template>
   <div class="container text-gray-700">
-    <h1 class="text-xl font-bold mb-3">{{ article.title }}</h1>
+    <h1 class="text-xl font-bold mb-3">
+      {{ article.title }}
+    </h1>
     <div class="flex align-middle mb-10">
       <nuxt-link
         class="mr-2"
@@ -15,12 +17,15 @@
       <span class="block my-auto">
         {{ article.created_at.substr(0, 10) }}
       </span>
-    </div>
-    <div v-if="isAdmin">
-      <nuxt-link :to="{ path: `/article/edit/${article.id}` }">edit</nuxt-link>
-    </div>
-    <div v-if="!isAdmin">
-      <nuxt-link :to="{ path: `/article/edit/${article.id}` }">edit</nuxt-link>
+      <nuxt-link
+        v-if="!isAdmin"
+        class="inline-block ml-3"
+        :to="{ path: `/article/edit/${article.id}` }"
+      >
+        <font-awesome-icon
+          class="block text-base text-lg h-full my-auto"
+          :icon="['far', 'edit']"
+      /></nuxt-link>
     </div>
     <div class="p-2 mb-10">
       <!-- eslint-disable-next-line vue/no-v-html -->
@@ -45,7 +50,7 @@ export default {
       })
     const article = response.data
     const codeParser = (block) => {
-      return `<pre class="p-2 my-2 bg-gray-800 text-gray-200 rounded"><code>${block.data.code
+      return `<pre class="code-block"><code>${block.data.code
         .replace(/</g, '&lt;')
         .replace(/>/, '&gt;')}</code></pre>`
     }
@@ -68,6 +73,13 @@ export default {
 
 <style scoped>
 #editorjs >>> h2 {
-  @apply text-xl font-bold p-3 mb-7 w-full bg-gray-100
+  @apply text-xl font-bold p-3 mb-7 w-full bg-gray-100;
+}
+#editorjs >>> p {
+  @apply my-1;
+}
+#editorjs >>> .code-block {
+  @apply p-2 my-2 text-gray-200 rounded;
+  background-color: #364549;
 }
 </style>
