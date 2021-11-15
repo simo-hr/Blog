@@ -24,7 +24,7 @@
     </div>
     <div class="p-2 mb-10">
       <!-- eslint-disable-next-line vue/no-v-html -->
-      <div v-html="article.content"></div>
+      <div id="editorjs" v-html="article.content"></div>
     </div>
   </div>
 </template>
@@ -65,3 +65,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+#editorjs >>> h2 {
+  @apply text-xl font-bold p-3 mb-7 w-full bg-gray-100
+}
+</style>

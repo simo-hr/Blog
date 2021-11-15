@@ -22,6 +22,11 @@ class CodeTool {
     this.wrapper.appendChild(pre)
     pre.appendChild(code)
     code.appendChild(textarea)
+
+    textarea.addEventListener('input', () => {
+      const scrollHeight = textarea.scrollHeight
+      textarea.style.height = scrollHeight + 'px'
+    })
     return this.wrapper
   }
 
