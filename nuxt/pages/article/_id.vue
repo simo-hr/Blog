@@ -54,10 +54,12 @@ export default {
         .replace(/</g, '&lt;')
         .replace(/>/, '&gt;')}</code></pre>`
     }
-    const parser = await EditorJSHtml({ code: codeParser })
-    article.content = await parser
-      .parse(JSON.parse(article.content))
-      .reduce((x, y) => `${x}${y}`)
+    if (article.content !== null) {
+      const parser = await EditorJSHtml({ code: codeParser })
+      article.content = await parser
+        .parse(JSON.parse(article.content))
+        .reduce((x, y) => `${x}${y}`)
+    }
     return { article }
   },
   data() {

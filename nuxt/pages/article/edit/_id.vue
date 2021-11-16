@@ -1,5 +1,5 @@
 <template>
-  <div class="box-border relative mx-auto text-gray-700">
+  <div class="box-border w-full relative text-gray-700">
     <input
       v-model="article.title"
       type="text"
@@ -82,7 +82,7 @@
     </div>
 
     <div id="editorjs"></div>
-    <button class="inline-block btn w-full" @click="save()">更新</button>
+    <button class="btn w-full mx-auto" @click="save()">更新</button>
   </div>
 </template>
 
