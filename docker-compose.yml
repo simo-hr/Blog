@@ -65,6 +65,7 @@ services:
       - web
     depends_on:
       - web
+    tty: true
 
 volumes:
   db-store:

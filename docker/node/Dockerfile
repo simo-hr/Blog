@@ -7,9 +7,6 @@ COPY ./nuxt/ /var/www/nuxt/
 
 RUN apk update && \
     apk upgrade && \
-    apk add --no-cache make gcc g++ python2 && \
-    yarn install
+    apk add --no-cache make gcc g++ python2
 
 EXPOSE 3000
-
-ENTRYPOINT ["yarn", "run", "dev"]
