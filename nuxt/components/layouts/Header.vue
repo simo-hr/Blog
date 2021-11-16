@@ -30,7 +30,6 @@ export default {
     HumbergerBotton,
     HeaderLogo,
   },
-  layout: 'Header',
   data() {
     return {
       menuFlag: false,

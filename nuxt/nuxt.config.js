@@ -1,3 +1,4 @@
+import * as FontAwesome from './build/fontawesome'
 const environment = process.env.NODE_ENV || 'development'
 require('dotenv').config()
 export default {
@@ -39,12 +40,13 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/fontawesome',
+    ['@nuxtjs/fontawesome', { component: 'fontAwesome', suffix: true }],
   ],
   fontawesome: {
     icons: {
-      solid: ['faBars'],
-      regular: ['faClock', 'faEdit'],
+      solid: FontAwesome.solid,
+      regular: FontAwesome.regular,
+      brands: FontAwesome.brands,
     },
   },
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -73,5 +75,6 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     hardSource: true,
+    analyze: true,
   },
 }

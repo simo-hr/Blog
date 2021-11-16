@@ -12,5 +12,14 @@
 </template>
 
 <script>
-export default {}
+import Header from '@/components/layouts/Header'
+import Aside from '@/components/layouts/Aside'
+import Footer from '@/components/layouts/Footer'
+export default {
+  components: {
+    Header,
+    Aside,
+    Footer,
+  },
+}
 </script>
