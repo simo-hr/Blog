@@ -2,12 +2,11 @@ import EditorJS from '@editorjs/editorjs'
 import Header from '@editorjs/header'
 import List from '@editorjs/list'
 import Image from '@editorjs/image'
-import CheckList from '@editorjs/checklist'
 import Embed from '@editorjs/embed'
 import Paragraph from '@editorjs/paragraph'
 import Delimiter from '@editorjs/delimiter'
 import Quote from '@editorjs/quote'
-import { CodeTool } from './editors/CodeTool'
+import { CodeTool } from './editors/code_tool'
 
 export default ({ $axios }, inject) => {
   inject('editor', {
@@ -40,10 +39,6 @@ export default ({ $axios }, inject) => {
           },
           image: {
             class: Image,
-            inlineToolbar: true,
-          },
-          checklist: {
-            class: CheckList,
             inlineToolbar: true,
           },
           embed: {

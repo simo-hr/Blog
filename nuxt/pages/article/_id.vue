@@ -37,6 +37,7 @@
 <script>
 import EditorJSHtml from 'editorjs-html'
 import CategoryTag from '@/components/parts/CategoryTag'
+import { customParser } from '@/plugins/editors/custom_parser.js'
 export default {
   components: {
     CategoryTag,
@@ -49,13 +50,8 @@ export default {
         console.log(error)
       })
     const article = response.data
-    const codeParser = (block) => {
-      return `<pre class="code-block"><code>${block.data.code
-        .replace(/</g, '&lt;')
-        .replace(/>/, '&gt;')}</code></pre>`
-    }
     if (article.content !== null) {
-      const parser = await EditorJSHtml({ code: codeParser })
+      const parser = await EditorJSHtml(customParser)
       article.content = await parser
         .parse(JSON.parse(article.content))
         .reduce((x, y) => `${x}${y}`)
@@ -74,14 +70,41 @@ export default {
 </script>
 
 <style scoped>
-#editorjs >>> h2 {
-  @apply text-xl font-bold p-3 mb-7 w-full bg-gray-100;
+#editorjs >>> h3 {
+  @apply text-3xl font-bold mb-7 pb-2 w-full border-b border-gray-600;
 }
 #editorjs >>> p {
-  @apply my-1;
+  @apply my-1 text-lg;
 }
-#editorjs >>> .code-block {
-  @apply p-2 my-2 text-gray-200 rounded;
+#editorjs >>> #code-block {
+  @apply p-2 my-5 text-gray-200 rounded;
   background-color: #364549;
+}
+
+#editorjs >>> #order-list {
+  @apply py-4 pl-10 my-5 text-gray-700 rounded bg-gray-100;
+}
+
+#editorjs >>> #order-list ol {
+  @apply list-decimal list-inside;
+}
+#editorjs >>> #order-list li {
+  @apply my-2;
+}
+
+#editorjs >>> #quote-block {
+  @apply py-4 pl-4 my-5 text-gray-700 rounded bg-gray-100;
+}
+
+#editorjs >>> #quote-block > div {
+  @apply pl-4 border-l-2 border-gray-300;
+}
+
+#editorjs >>> #quote-block blockquote {
+  @apply text-gray-700 mb-3;
+}
+
+#editorjs >>> #quote-block span {
+  @apply text-gray-400 text-sm
 }
 </style>
