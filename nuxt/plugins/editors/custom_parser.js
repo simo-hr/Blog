@@ -1,7 +1,11 @@
 const codeParser = (block) => {
-  return `<pre id="code-block"><code>${block.data.code
-    .replace(/</g, '&lt;')
-    .replace(/>/, '&gt;')}</code></pre>`
+  return `
+    <pre id="code-block">
+			<code>
+				${block.data.code.replace(/</g, '&lt;').replace(/>/, '&gt;')}
+			</code>
+		</pre>
+	`
 }
 
 const listParser = (block) => {
@@ -9,7 +13,13 @@ const listParser = (block) => {
   for (let i = 0; i < block.data.items.length; i++) {
     listItems += `<li>${block.data.items[i]}</li>`
   }
-  return `<div id="order-list"><ol>${listItems}</ol></div>`
+  return `
+		<div id="order-list">
+			<ol>
+				${listItems}
+			</ol>
+		</div>
+	`
 }
 
 const quoteParser = (block) => {

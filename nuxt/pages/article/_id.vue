@@ -88,6 +88,7 @@ export default {
 #editorjs >>> #order-list ol {
   @apply list-decimal list-inside;
 }
+
 #editorjs >>> #order-list li {
   @apply my-2;
 }
