@@ -1,13 +1,15 @@
 <template>
   <nuxt-link :to="{ path: `/article/${article.id}` }">
     <div class="relative">
-      <CategoryTag class="absolute">
+      <CategoryTag class="absolute z-10">
         <slot>{{ article.category.name }}</slot>
       </CategoryTag>
-      <img
-        class="w-full shadow-md"
-        :src="`${apiHost}/storage/articles/${article.image}`"
-      />
+      <div class="relative overflow-hidden">
+        <img
+          class="w-full shadow-md transform duration-200 hover:scale-110"
+          :src="`${apiHost}/storage/articles/${article.image}`"
+        />
+      </div>
     </div>
     <p
       :to="{ path: '/article/' + article.id }"
