@@ -24,6 +24,8 @@ class Article extends Model
         'image',
     ];
 
+    protected $casts = ['content' => 'json'];
+
     public function category()
     {
         return $this->belongsTo(Category::class);
