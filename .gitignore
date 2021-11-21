@@ -1,2 +1,7 @@
 .env
 .idea
+
+.DS_Store
+docker/db/db-variables.env
+docker/nginx/nginx.conf
+docker/db/mysql_data
