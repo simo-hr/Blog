@@ -30,7 +30,7 @@ class ArticleRequest extends FormRequest
         return [
             'category_id' => 'required|regex:/^[0-9]+$/i|exists:categories,id',
             'title' => ['required', 'string', new MaxWordCountValidation(self::TITLE_MAX_WORD_COUNT)],
-            'content' => 'required|string',
+            'content' => 'nullable',
         ];
     }
 
