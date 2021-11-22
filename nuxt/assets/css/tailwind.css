@@ -5,3 +5,15 @@
 .h1 {
   @apply pl-3 mb-10 font-sans text-base sm:text-lg md:text-3xl;
 }
+
+.article-title-input {
+  @apply shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 mb-3 leading-tight focus:outline-none;
+}
+
+.article-category-select {
+  @apply shadow appearance-none border border-gray-500 rounded w-1/6 py-1 px-3 leading-tight focus:outline-none;
+}
+
+.article-save-btn {
+  @apply w-full text-white bg-gray-600 p-2 rounded cursor-pointer;
+}

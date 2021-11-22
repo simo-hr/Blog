@@ -124,13 +124,13 @@ export default {
     this.editor = this.$editor.EditorJS({
       holder: 'editorjs',
       placeholder: 'No content',
-      data: JSON.parse(this.article.content),
+      data: this.article.content,
     })
   },
   methods: {
     async save() {
       await this.editor.save().then((savedData) => {
-        this.article.content = JSON.stringify(savedData)
+        this.article.content = savedData
       })
 
       this.$axios
