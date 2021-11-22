@@ -53,7 +53,8 @@ export default {
     if (article.content !== null) {
       const parser = await EditorJSHtml(customParser)
       article.content = await parser
-        .parse(JSON.parse(article.content))
+        .parse(article.content)
+        // .parse(JSON.parse(article.content))
         .reduce((x, y) => `${x}${y}`)
     }
     return { article }
