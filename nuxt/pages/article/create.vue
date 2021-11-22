@@ -20,7 +20,7 @@
       </select>
     </div>
 
-    <Editor :article="article"></Editor>
+    <Editor :article="article" @article-create="article.content = $event"></Editor>
   </div>
 </template>
 

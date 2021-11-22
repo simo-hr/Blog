@@ -3,21 +3,10 @@
     <input
       v-model="article.title"
       type="text"
-      class="
-        shadow
-        appearance-none
-        border border-blue-500
-        rounded
-        w-1/2
-        py-2
-        px-3
-        mb-3
-        leading-tight
-        focus:outline-none focus:shadow-outline
-      "
+      class="article-title-input"
       aria-label="タイトル"
+      placeholder="記事タイトル"
     />
-
     <div
       class="relative w-1/6 hover:cursor-pointer"
       @mouseover="
@@ -78,16 +67,21 @@
         </button>
       </div>
       <img class="w-full mx-auto" :src="confirmedImage" />
-      <div></div>
     </div>
 
-    <div id="editorjs"></div>
-    <button class="btn w-full mx-auto" @click="save()">更新</button>
+    <Editor
+      :article="article"
+      @article-update="article.content = $event"
+    ></Editor>
   </div>
 </template>
 
 <script>
+import Editor from '@/components/objects/Editor'
 export default {
+  components: {
+    Editor,
+  },
   // middleware: ['checkIsAdmin'],
   asyncData(context) {
     return context.$axios
@@ -110,8 +104,6 @@ export default {
       view: true,
       imgChangeFlag: false,
       confirmedImage: '',
-      editor: null,
-      contentData: {},
     }
   },
   computed: {
@@ -121,29 +113,8 @@ export default {
   },
   mounted() {
     this.isAdmin = this.$store.getters['auth/isAdmin']
-    this.editor = this.$editor.EditorJS({
-      holder: 'editorjs',
-      placeholder: 'No content',
-      data: this.article.content,
-    })
   },
   methods: {
-    async save() {
-      await this.editor.save().then((savedData) => {
-        this.article.content = savedData
-      })
-
-      this.$axios
-        .put(`/articles/${this.$route.params.id}`, {
-          category_id: this.article.category_id,
-          title: this.article.title,
-          content: this.article.content,
-        })
-        .catch((err) => {
-          // eslint-disable-next-line no-console
-          console.log(err)
-        })
-    },
     confirmImage(e) {
       this.message = ''
       this.file = e.target.files[0]
@@ -195,16 +166,7 @@ export default {
 .img {
   @apply w-16 md:w-32 lg:w-48 h-auto flex-none border border-gray-300;
 }
-
 .btn {
-  @apply text-white bg-gray-600 p-2 m-2 cursor-pointer;
-}
-
-.code-block {
-  @apply text-white bg-gray-600 p-2 m-2 cursor-pointer;
-}
-
-#editorjs >>> .code-block textarea {
-  @apply text-gray-300 w-full bg-gray-900 my-2 p-2 rounded;
+  @apply text-white bg-gray-600 p-2 cursor-pointer;
 }
 </style>

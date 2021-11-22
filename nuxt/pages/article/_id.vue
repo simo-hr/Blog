@@ -18,7 +18,6 @@
         {{ article.created_at.substr(0, 10) }}
       </span>
       <nuxt-link
-        v-if="!isAdmin"
         class="inline-block ml-3"
         :to="{ path: `/article/edit/${article.id}` }"
       >

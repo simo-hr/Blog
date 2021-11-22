@@ -1,7 +1,7 @@
 <template>
   <div class="min">
     <div id="editorjs"></div>
-    <button class="article-save-btn" @click="save()">投稿</button>
+    <button class="article-save-btn" @click="save()">{{ btnValue }}</button>
   </div>
 </template>
 
@@ -18,6 +18,11 @@ export default {
       editor: null,
     }
   },
+  computed: {
+    btnValue() {
+      return this.$route.name === 'article-create' ? '投稿' : '更新'
+    },
+  },
   mounted() {
     this.editor = this.$editor.EditorJS({
       holder: 'editorjs',
@@ -27,20 +32,25 @@ export default {
   },
   methods: {
     async save() {
-      await this.editor.save().then((savedData) => {
-        this.article.content = savedData
-      })
-
       if (this.$route.name === 'article-create') {
+        await this.editor.save().then((savedData) => {
+          this.$emit('article-create', savedData)
+        })
         this.$axios.post(`/articles`, this.article).catch((err) => {
           // eslint-disable-next-line no-console
           console.log(err)
         })
       } else {
-        this.$axios.put(`/articles`, this.article).catch((err) => {
-          // eslint-disable-next-line no-console
-          console.log(err)
+        await this.editor.save().then((savedData) => {
+          this.$emit('article-update', savedData)
         })
+        await this.$axios
+          .put(`/articles/${this.article.id}`, this.article)
+          .catch((err) => {
+            // eslint-disable-next-line no-console
+            console.log(err)
+          })
+        this.$router.push(`/article/${this.article.id}`)
       }
     },
   },
