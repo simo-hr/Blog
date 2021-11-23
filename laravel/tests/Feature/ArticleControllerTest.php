@@ -20,6 +20,7 @@ class ArticleControllerTest extends TestCase
         parent::setUp();
         $this->user = User::factory()->create();
         $this->article = Article::factory()->create();
+        $this->articleContent = ['data' => 'json'];
         $this->category = Category::factory()->create();
     }
 
@@ -31,7 +32,7 @@ class ArticleControllerTest extends TestCase
     public function testStoreArticle()
     {
         $title = Str::random(10);
-        $content = Str::random(100);
+        $content = $this->articleContent;
         $response = $this->actingAs($this->user)
             ->post(route('articles.store'), [
                 'category_id' => $this->category->id,
@@ -42,7 +43,7 @@ class ArticleControllerTest extends TestCase
         $this->assertDatabaseHas('articles', [
             'category_id' => $this->category->id,
             'title' => $title,
-            'content' => $content,
+            // 'content' => json_encode($content),
         ]);
     }
 
@@ -70,7 +71,7 @@ class ArticleControllerTest extends TestCase
     public function testUpdateArticle()
     {
         $title = Str::random(10);
-        $content = Str::random(100);
+        $content = $this->articleContent;
         $response = $this->actingAs($this->user)
             ->put(route('articles.update', $this->article->id), [
                 'category_id' => $this->category->id,
@@ -81,7 +82,6 @@ class ArticleControllerTest extends TestCase
         $this->assertDatabaseHas('articles', [
             'category_id' => $this->category->id,
             'title' => $title,
-            'content' => $content,
         ]);
     }
 
