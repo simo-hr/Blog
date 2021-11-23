@@ -6,9 +6,9 @@ name: EC2 auto deploy
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -22,16 +22,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    
       # IP取得ライブラリをインストール
       - name: Public IP Install
         id: ip
         uses: haythem/public-ip@v1.2
-       
+
       # BranchをCheckout
       - name: Checkout
         uses: actions/checkout@v2
-
 
       # AWS CLIをインストールする
       - name: AWS CLI install
@@ -46,19 +44,19 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-northeast-1
-     
+          aws-region: us-east-1
+
       # デプロイする
       - name: Deploy
         run: |
-        
+
           # SSHのセキュリティグループを開放する
           aws ec2 authorize-security-group-ingress --group-id ${{ secrets.EC2_SECURITY_GROUP_ID }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
 
           # SSH接続して、git pullする
           echo "${{ secrets.GIT_PRIVATE_KEY }}" > private_key
           chmod 600 private_key
-          ssh -oStrictHostKeyChecking=no ${{ secrets.EC2_USER_NAME }}@${{ secrets.EC2_HOST_NAME }} -i private_key "cd /var/www/html/ && git fetch --prune && git checkout main && git pull origin main"
+          ssh -oStrictHostKeyChecking=no ${{ secrets.EC2_USER_NAME }}@${{ secrets.EC2_HOST_NAME }} -i private_key "cd /home/ec2-user/Blog && git fetch --prune && git checkout main && git pull origin main"
 
           # SSHのセキュリティグループを閉じる
           aws ec2 revoke-security-group-ingress --group-id ${{ secrets.EC2_SECURITY_GROUP_ID }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
