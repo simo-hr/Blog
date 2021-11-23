@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <Header class="mb-10 mr-4 sticky top-0 z-10 bg-white" />
-    <div
-      class="flex flex-col pb-5 sm:flex-row mx-1 sm:mx-2 md:mx-5 lg:mx-7 xl:mx-10"
-    >
+  <div class="relative min-h-screen">
+    <Header class="mb-10 sticky top-0 z-30" />
+    <div class="container mx-auto flex flex-col sm:flex-row pb-5">
       <Nuxt class="box-border" />
       <Aside class="box-border" />
     </div>
-    <Footer />
+    <Footer class="absolute w-full bottom-0" />
   </div>
 </template>
 
