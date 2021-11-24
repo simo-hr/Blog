@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto mb-10">
+  <div class="container mx-auto">
     <h1 class="h1">{{ category.name }}</h1>
     <ArticleList :articles="articlesPerPage">{{ category.name }}</ArticleList>
 

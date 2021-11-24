@@ -1,8 +1,8 @@
 <template>
   <div class="relative min-h-screen">
     <Header class="mb-10 sticky top-0 z-30" />
-    <div class="container mx-auto flex flex-col sm:flex-row pb-5">
-      <Nuxt class="box-border" />
+    <div class="container mx-auto flex flex-col sm:flex-row">
+      <Nuxt class="box-border pb-10" />
       <Aside class="box-border" />
     </div>
     <Footer class="absolute w-full bottom-0" />
