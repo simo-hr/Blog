@@ -13,8 +13,6 @@ services:
       - ${PROJECT_PATH}:/var/www/laravel
     ports:
       - ${WEB_PORT}:80
-    links:
-      - app
     depends_on:
       - app
 
@@ -39,7 +37,7 @@ services:
     ports:
       - ${DB_PORT}:3306
 
-  front_app:
+  client:
     build:
       context: .
       dockerfile: ./docker/node/Dockerfile
@@ -49,8 +47,6 @@ services:
       - ./nuxt:/var/www/nuxt
     ports:
       - ${FRONT_PORT}:3000
-    links:
-      - web
     depends_on:
       - web
     tty: true
