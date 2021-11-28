@@ -20,7 +20,7 @@
         }
       "
     >
-      <img class="img" :src="`${apiHost}/storage/articles/${article.image}`" />
+      <img class="img" :src="imgSource(article.image)" />
       <label
         v-show="imgChangeFlag"
         class="
@@ -107,8 +107,10 @@ export default {
     }
   },
   computed: {
-    apiHost() {
-      return process.env.API_HOST
+    imgSource: () => {
+      return (imgName) => {
+        return `${process.env.API_HOST}/storage/articles/${imgName}`
+      }
     },
   },
   mounted() {

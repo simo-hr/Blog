@@ -7,7 +7,7 @@
       <div class="relative overflow-hidden">
         <img
           class="w-full shadow-md transform duration-200 hover:scale-110"
-          :src="`${apiHost}/storage/articles/${article.image}`"
+          :src="imgSource(article.image)"
         />
       </div>
     </div>
@@ -42,8 +42,10 @@ export default {
     },
   },
   computed: {
-    apiHost() {
-      return process.env.API_HOST
+    imgSource: () => {
+      return (imgName) => {
+        return `${process.env.API_HOST}/storage/articles/${imgName}`
+      }
     },
   },
 }

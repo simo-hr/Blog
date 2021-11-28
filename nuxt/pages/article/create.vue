@@ -49,11 +49,6 @@ export default {
       },
     }
   },
-  computed: {
-    apiHost() {
-      return process.env.API_HOST
-    },
-  },
   mounted() {
     this.isAdmin = this.$store.getters['auth/isAdmin']
   },
