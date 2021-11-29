@@ -28,7 +28,7 @@ const pagination = {
       })
       this.articlesPerPage = this.articles.slice(
         0 + (pageNumber - 1) * PER_PAGE,
-        7 + (pageNumber - 1) * PER_PAGE
+        PER_PAGE - 1 + (pageNumber - 1) * PER_PAGE
       )
     },
     changeRenderPages(pageNumber) {
@@ -37,7 +37,7 @@ const pagination = {
         return
       }
 
-      const firstPages = [...Array(floor(PAGE_NAV_LIST_MAX / 2))].map(
+      const firstPages = [...Array(Math.floor(PAGE_NAV_LIST_MAX / 2))].map(
         (_, i) => i + 1
       )
       if (firstPages.includes(pageNumber)) {
