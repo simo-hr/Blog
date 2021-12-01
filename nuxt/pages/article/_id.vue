@@ -53,7 +53,6 @@ export default {
       const parser = await EditorJSHtml(customParser)
       article.content = await parser
         .parse(article.content)
-        // .parse(JSON.parse(article.content))
         .reduce((x, y) => `${x}${y}`)
     }
     return { article }
@@ -76,6 +75,7 @@ export default {
 #editorjs >>> p {
   @apply my-1 text-lg;
 }
+
 #editorjs >>> #code-block {
   @apply p-2 my-5 text-gray-200 rounded;
   background-color: #364549;
@@ -106,6 +106,6 @@ export default {
 }
 
 #editorjs >>> #quote-block span {
-  @apply text-gray-400 text-sm
+  @apply text-gray-400 text-sm;
 }
 </style>
