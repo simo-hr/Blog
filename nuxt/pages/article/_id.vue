@@ -76,6 +76,10 @@ export default {
   @apply my-1 text-lg;
 }
 
+#editorjs >>> a {
+  @apply text-purple-600 hover:border-b hover:border-purple-600;
+}
+
 #editorjs >>> #code-block {
   @apply p-2 my-5 text-gray-200 rounded;
   background-color: #364549;

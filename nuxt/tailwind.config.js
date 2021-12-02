@@ -18,7 +18,9 @@ module.exports = {
     padding: ['responsive', 'hover', 'focus'],
     cursor: ['hover'],
     scale: ['hover'],
-    extend: {},
+    extend: {
+      borderWidth: ['hover', 'focus'],
+    },
   },
   plugins: [],
 }
