@@ -7,6 +7,7 @@ import Paragraph from '@editorjs/paragraph'
 import Delimiter from '@editorjs/delimiter'
 import Quote from '@editorjs/quote'
 import { CodeTool } from './editors/code_tool'
+import { MarkerTool } from './editors/marker_tool'
 
 export default ({ $axios }, inject) => {
   inject('editor', {
@@ -54,6 +55,7 @@ export default ({ $axios }, inject) => {
             inlineToolbar: true,
           },
           code: CodeTool,
+          marker: MarkerTool,
         },
       })
     },
