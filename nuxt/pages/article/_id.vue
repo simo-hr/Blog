@@ -74,7 +74,7 @@ export default {
 }
 
 #editorjs >>> p {
-  @apply my-1 text-lg;
+  @apply leading-10 text-lg;
 }
 
 #editorjs >>> a {
