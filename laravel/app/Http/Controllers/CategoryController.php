@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CategoryRequest;
-use App\Http\Resources\CategoryResource;
 use App\Models\Category;
 use App\Services\CategoryServiceInterface;
 
@@ -20,29 +19,29 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return CategoryResource::collection($this->categoryService->index());
+        return $this->categoryService->index();
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  CategoryRequest $request
-     * @return CategoryResource
+     * @return
      */
     public function store(CategoryRequest $request)
     {
-        return new CategoryResource($this->categoryService->store($request));
+        return $this->categoryService->store($request);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  Category $category
-     * @return CategoryResource
+     * @return
      */
     public function show(Category $category)
     {
-        return new CategoryResource($this->categoryService->show($category->id));
+        return $this->categoryService->show($category->id);
     }
 
     /**
@@ -50,11 +49,11 @@ class CategoryController extends Controller
      *
      * @param  CategoryRequest $request
      * @param  Category $category
-     * @return CategoryResource
+     * @return
      */
     public function update(CategoryRequest $request, Category $category)
     {
-        return new CategoryResource($this->categoryService->update($request, $category->id));
+        return $this->categoryService->update($request, $category->id);
     }
 
     /**

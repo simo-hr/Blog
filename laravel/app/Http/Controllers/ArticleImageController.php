@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Resources\ArticleResource;
 use App\Services\ArticleImageServiceInterface;
 
 class ArticleImageController extends Controller
@@ -12,8 +11,14 @@ class ArticleImageController extends Controller
     {
     }
 
+    /**
+     * Upload article image.
+     *
+     * @param  Request $request
+     * @param  int $id
+     */
     public function upload(Request $request, int $id)
     {
-        return new ArticleResource($this->articleImageService->upload($request, $id));
+        return $this->articleImageService->upload($request, $id);
     }
 }

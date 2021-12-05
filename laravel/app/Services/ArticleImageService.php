@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Http\Resources\ArticleResource;
 use App\Repositories\ArticleImageRepositoryInterface;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,6 +24,6 @@ class ArticleImageService implements ArticleImageServiceInterface
         }
         $imageName = $image->getClientOriginalName();
         $image->storeAs('public/articles/', $imageName);
-        return $this->articleImageRepository->upload($imageName, $id);
+        return new ArticleResource($this->articleImageRepository->upload($imageName, $id));
     }
 }
