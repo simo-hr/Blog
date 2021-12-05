@@ -23,10 +23,18 @@ const quoteParser = (block) => {
   `
 }
 
+const paragraphParser = (block) => {
+  if (block.data.text === null) {
+    return `<br>`
+  }
+  return `<p>${block.data.text}</p>`
+}
+
 const customParser = {
   code: codeParser,
   list: listParser,
   quote: quoteParser,
+  paragraph: paragraphParser,
 }
 
 export { customParser }
