@@ -86,12 +86,16 @@ export default {
   background-color: #364549;
 }
 
-#editorjs >>> #order-list {
+#editorjs >>> .list {
   @apply py-4 pl-10 my-5 text-gray-700 rounded bg-gray-100;
 }
 
 #editorjs >>> #order-list ol {
   @apply list-decimal list-inside;
+}
+
+#editorjs >>> #unordered-list ul {
+  @apply list-disc list-inside;
 }
 
 #editorjs >>> #order-list li {
