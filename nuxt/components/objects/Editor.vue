@@ -62,7 +62,11 @@ export default {
   @apply w-16 md:w-32 lg:w-48 h-auto flex-none border border-gray-300;
 }
 
-.code-block {
+#editorjs >>> h3 {
+  @apply text-3xl font-bold mb-7 pb-2 w-full border-b border-gray-600;
+}
+
+#editorjs .code-block {
   @apply text-white bg-gray-600 p-2 m-2 cursor-pointer;
 }
 

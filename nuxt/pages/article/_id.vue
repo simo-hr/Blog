@@ -72,6 +72,7 @@ export default {
 #editorjs >>> h3 {
   @apply text-3xl font-bold mb-7 pb-2 w-full border-b border-gray-600;
 }
+
 #editorjs >>> p {
   @apply my-1 text-lg;
 }
