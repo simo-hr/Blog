@@ -15,9 +15,11 @@ class CategoryService implements CategoryServiceInterface
     {
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return  CategoryResource::collection($this->categoryRepository->index());
+
+        $isOnlyParent = (bool)$request->is_only_parent === true ? true : false;
+        return  CategoryResource::collection($this->categoryRepository->index($isOnlyParent));
     }
 
     public function store(Request $request)

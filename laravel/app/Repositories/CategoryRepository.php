@@ -9,9 +9,12 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CategoryRepository implements CategoryRepositoryInterface
 {
-    public function index()
+    public function index(bool $isOnlyParent)
     {
-        return Category::where('parent_id', null)->get();
+        if ($isOnlyParent) {
+            return Category::where('parent_id', null)->get();
+        }
+        return Category::all();
     }
 
     public function store(?int $parent_id, string $name)

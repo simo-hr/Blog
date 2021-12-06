@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use App\Services\CategoryServiceInterface;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -15,11 +16,12 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return $this->categoryService->index();
+        return $this->categoryService->index($request);
     }
 
     /**

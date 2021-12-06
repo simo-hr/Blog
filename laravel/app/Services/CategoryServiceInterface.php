@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 interface CategoryServiceInterface
 {
-    public function index();
+    public function index(Request $request);
     public function store(Request $request);
     public function show(int $id);
     public function update(Request $request, int $id);

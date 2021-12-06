@@ -44,7 +44,7 @@ export default {
     }
   },
   async fetch() {
-    const response = await this.$axios.get('categories').catch((error) => {
+    const response = await this.$axios.get('categories?is_only_parent=true').catch((error) => {
       // eslint-disable-next-line no-console
       console.log(error)
     })
