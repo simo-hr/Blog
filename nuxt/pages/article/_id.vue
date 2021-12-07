@@ -103,7 +103,7 @@ export default {
 }
 
 #editorjs >>> #quote-block {
-  @apply py-4 pl-4 my-5 text-gray-700 rounded bg-gray-100;
+  @apply py-4 pl-4 pr-2 my-5 text-gray-700 rounded bg-gray-100;
 }
 
 #editorjs >>> #quote-block > div {
@@ -115,6 +115,6 @@ export default {
 }
 
 #editorjs >>> #quote-block span {
-  @apply text-gray-400 text-sm;
+  @apply break-all text-gray-400 text-sm;
 }
 </style>
