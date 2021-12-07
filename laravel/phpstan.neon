@@ -1,0 +1,18 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+    paths:
+        - app
+    level: 5
+    ignoreErrors:
+        - '#Unsafe usage of new static#'
+        -
+            message: '#Access to an undefined property#'
+            path: app/Http/Resources/*
+    excludePaths:
+        - ./*/*/FileToBeExcluded.php
+    fileExtensions:
+        - php
+    checkMissingIterableValueType: false
+    reportUnmatchedIgnoredErrors: false
