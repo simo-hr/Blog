@@ -10,7 +10,7 @@ export default {
   head: {
     title: process.env.SITE_NAME,
     htmlAttrs: {
-      lang: 'en',
+      lang: 'ja',
     },
     meta: [
       { charset: 'utf-8' },
@@ -58,10 +58,7 @@ export default {
   ],
 
   proxy: {
-    '/api':
-      environment === 'development'
-        ? process.env.API_URL
-        : 'https://www.example.org',
+    '/api': process.env.API_URL,
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -74,7 +71,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    hardSource: true,
-    analyze: true,
+    hardSource: environment === 'development',
+    analyze: environment === 'development',
   },
 }
