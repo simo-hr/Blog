@@ -25,3 +25,29 @@
 #page-nav li {
   @apply flex-none block py-2 px-4 m-2 border border-gray-400 transition-colors transform duration-300 hover:bg-gray-600 hover:text-gray-200;
 }
+
+/* aside */
+.aside-name {
+  @apply relative w-full font-bold text-xl mb-2;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.aside-name:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.aside-name:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40%;
+  border-bottom: 2px solid #a0aec0;
+}
