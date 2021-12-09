@@ -13,7 +13,7 @@
         border-solid border-b border-gray-300
         hover:bg-gray-100
         transition-all
-        hover:pl-3
+        hover:pl-1
       "
     >
       <nuxt-link
