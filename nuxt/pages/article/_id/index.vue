@@ -19,7 +19,7 @@
       </span>
       <nuxt-link
         class="inline-block ml-3"
-        :to="{ path: `/article/edit/${article.id}` }"
+        :to="{ path: `/article/${article.id}/edit` }"
       >
         <font-awesome-icon
           class="block text-base text-lg h-full my-auto"
