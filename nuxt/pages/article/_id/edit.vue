@@ -82,7 +82,7 @@ export default {
   components: {
     Editor,
   },
-  // middleware: ['checkIsAdmin'],
+  middleware: ['checkIsAdmin'],
   asyncData(context) {
     return context.$axios
       .get(`articles/${context.route.params.id}`)
