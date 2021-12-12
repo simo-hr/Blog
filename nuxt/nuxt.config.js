@@ -1,4 +1,4 @@
-import * as FontAwesome from './build/fontawesome'
+import * as FontAwesome from './build/fontawesome.ts'
 const environment = process.env.NODE_ENV || 'development'
 require('dotenv').config()
 export default {
