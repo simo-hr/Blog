@@ -17,12 +17,13 @@
   </nuxt-link>
 </template>
 
-<script>
-export default {
+<script lang='ts'>
+import Vue from 'vue'
+export default Vue.extend({
   computed: {
-    siteName() {
+    siteName(): string | undefined {
       return process.env.SITE_NAME
     },
   },
-}
+})
 </script>
